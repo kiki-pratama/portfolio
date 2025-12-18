@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rizki Angga Pratama | Cyber Security Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Orbitron:wght@400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #050505;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        .font-cyber {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 0px #00FFFF, -2px -2px 0px #FF00FF;
+            animation: glitch-anim 1s infinite alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { text-shadow: 2px 2px 0px #00FFFF, -2px -2px 0px #FF00FF; transform: translate(0, 0); }
+            20% { text-shadow: -2px 2px 0px #00FFFF, 2px -2px 0px #FF00FF; transform: translate(-2px, 2px); }
+            40% { text-shadow: 2px -2px 0px #00FFFF, -2px 2px 0px #FF00FF; transform: translate(2px, -2px); }
+            60% { text-shadow: -2px -2px 0px #00FFFF, 2px 2px 0px #FF00FF; transform: translate(-2px, -2px); }
+            80% { text-shadow: 2px 2px 0px #00FFFF, -2px -2px 0px #FF00FF; transform: translate(0, 0); }
+            100% { text-shadow: -2px 2px 0px #00FFFF, 2px -2px 0px #FF00FF; transform: translate(2px, 2px); }
+        }
+
+        /* Matrix Rain Canvas Background */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        /* Neon Borders */
+        .neon-border {
+            border: 1px solid #00ff41;
+            box-shadow: 0 0 5px #00ff41, inset 0 0 5px #00ff41;
+            transition: all 0.3s ease;
+        }
+        .neon-border:hover {
+            box-shadow: 0 0 15px #00ff41, inset 0 0 10px #00ff41;
+            background: rgba(0, 255, 65, 0.05);
+        }
+
+        .neon-border-blue {
+            border: 1px solid #00f3ff;
+            box-shadow: 0 0 5px #00f3ff, inset 0 0 5px #00f3ff;
+        }
+
+        /* Terminal Typing Cursor */
+        .typing-cursor::after {
+            content: '█';
+            animation: blink 1s step-end infinite;
+            color: #00ff41;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00ff41;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-green-900 selection:text-white">
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-sm border-b border-green-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <span class="font-cyber text-xl text-green-500 font-bold tracking-wider">&lt;RIZKI/&gt;</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">./Home</a>
+                        <a href="#about" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">./About</a>
+                        <a href="#experience" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">./Experience</a>
+                        <a href="#skills" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">./Skills</a>
+                        <a href="#contact" class="px-4 py-2 border border-green-500 text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300 text-sm font-bold skew-x-[-10deg]">CONTACT_ME</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="h-screen flex items-center justify-center relative px-4">
+        <div class="text-center z-10 max-w-4xl">
+            <p class="text-green-500 mb-4 tracking-[0.2em] text-sm md:text-base">SYSTEM_READY... INITIALIZING PROFILE</p>
+            <h1 class="font-cyber text-4xl md:text-7xl font-bold mb-6 text-white glitch" data-text="RIZKI ANGGA PRATAMA">RIZKI ANGGA PRATAMA</h1>
+            <h2 class="text-xl md:text-3xl text-cyan-400 mb-8 font-light border-r-4 border-cyan-400 pr-4 inline-block typing-cursor" id="typewriter"></h2>
+            
+            <div class="flex justify-center gap-4 mt-8">
+                <a href="#contact" class="neon-border bg-black/50 text-green-400 px-8 py-3 font-bold hover:scale-105 transform transition">
+                    <i class="fas fa-terminal mr-2"></i> HIRE_ME
+                </a>
+                <button class="neon-border-blue bg-black/50 text-cyan-400 px-8 py-3 font-bold hover:scale-105 transform transition" onclick="alert('CV Download Initiated...')">
+                    <i class="fas fa-download mr-2"></i> DOWNLOAD_CV
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (Terminal Style) -->
+    <section id="about" class="py-20 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex items-center gap-2 mb-4">
+                <i class="fas fa-user-secret text-green-500 text-2xl"></i>
+                <h2 class="text-3xl font-cyber text-white">WHOAMI</h2>
+            </div>
+            
+            <div class="w-full bg-slate-900 rounded-lg overflow-hidden border border-gray-700 shadow-2xl">
+                <div class="bg-gray-800 px-4 py-2 flex items-center gap-2 border-b border-gray-700">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span class="ml-2 text-xs text-gray-400 font-mono">root@rizki-kali-linux:~</span>
+                </div>
+                <div class="p-6 font-mono text-sm md:text-base text-gray-300 leading-relaxed">
+                    <p class="mb-4"><span class="text-green-500">root@rizki:~$</span> cat profile.txt</p>
+                    <p class="mb-4 text-cyan-300">
+                        > Name: Rizki Angga Pratama, S.Kom, C.Pro<br>
+                        > Location: Jakarta, Indonesia<br>
+                        > Role: IT Security Analyst L2 | Blue Team Specialist<br>
+                        > Experience: 2+ Years
+                    </p>
+                    <p class="mb-4">
+                        Saya adalah seorang profesional Cybersecurity dengan pengalaman mendalam dalam <span class="text-yellow-400">SOC Operations</span>, <span class="text-yellow-400">Threat Hunting</span>, dan <span class="text-yellow-400">IT Infrastructure</span>. 
+                        Memiliki latar belakang pendidikan Ilmu Komputer dari Universitas Sriwijaya. Saat ini berfokus pada analisis malware, monitoring SIEM (Elastic/Wazuh), dan mitigasi ancaman siber di sektor perbankan dan korporasi multinasional.
+                    </p>
+                    <p class="animate-pulse text-green-500">_</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 bg-black/40">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-cyber text-white mb-12 text-center border-b border-green-900 pb-4 inline-block px-10 relative left-1/2 transform -translate-x-1/2">
+                SYSTEM_LOGS / EXPERIENCE
+            </h2>
+
+            <div class="relative border-l-2 border-green-900 ml-4 md:ml-10 space-y-12">
+                
+                <!-- Job 1 -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-green-500 shadow-[0_0_10px_#00ff41] group-hover:scale-125 transition-transform"></div>
+                    <div class="neon-border bg-slate-900/50 p-6 rounded-r-lg relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-2 opacity-10">
+                            <i class="fas fa-shield-alt text-6xl"></i>
+                        </div>
+                        <span class="text-xs font-bold bg-green-900 text-green-300 px-2 py-1 rounded mb-2 inline-block">06/2025 - PRESENT</span>
+                        <h3 class="text-2xl font-bold text-white">IT Security Analyst L2</h3>
+                        <h4 class="text-cyan-400 mb-4 text-lg">Bank BJB Head Office | Bandung</h4>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm md:text-base">
+                            <li>Melakukan monitoring 24/7 menggunakan <span class="text-white">SIEM Elastic</span>.</li>
+                            <li>Deep investigation dan Threat Hunting terhadap IoC (Indicator of Compromise).</li>
+                            <li>Review daily report SOC L1 dan melakukan improvement dashboard monitoring.</li>
+                            <li>Analisis insiden keamanan tingkat lanjut.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-cyan-500 shadow-[0_0_10px_#00f3ff] group-hover:scale-125 transition-transform"></div>
+                    <div class="neon-border-blue bg-slate-900/50 p-6 rounded-r-lg">
+                        <span class="text-xs font-bold bg-cyan-900 text-cyan-300 px-2 py-1 rounded mb-2 inline-block">02/2025 - 06/2025</span>
+                        <h3 class="text-2xl font-bold text-white">IT Asset Management</h3>
+                        <h4 class="text-cyan-400 mb-4 text-lg">PT Dipo Star Finance | Jakarta</h4>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm md:text-base">
+                            <li>Mengelola aset IT menggunakan Dashboard PowerBI.</li>
+                            <li>Tracking movement, warranty, dan end-of-service aset perusahaan.</li>
+                            <li>Deployment dan replacement unit Notebook untuk user.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-500 group-hover:bg-white transition-colors"></div>
+                    <div class="border border-gray-700 hover:border-white transition-colors bg-slate-900/50 p-6 rounded-r-lg">
+                        <span class="text-xs font-bold bg-gray-800 text-gray-300 px-2 py-1 rounded mb-2 inline-block">02/2024 - 02/2025</span>
+                        <h3 class="text-2xl font-bold text-white">IT Infrastructure Engineer</h3>
+                        <h4 class="text-cyan-400 mb-4 text-lg">Mitsubishi Corporation Group | Jakarta</h4>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm md:text-base">
+                            <li>Monitoring alert keamanan dan mitigasi isu menggunakan <span class="text-white">SOC RADAR</span>.</li>
+                            <li>Maintenance Firewall Security di Microsoft Azure.</li>
+                            <li>Konfigurasi sistem keamanan (Jumpcloud, Trellix, Cisco Wireless LAN).</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Certs -->
+    <section id="skills" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <!-- Skills -->
+            <div>
+                <h2 class="text-3xl font-cyber text-white mb-8 flex items-center gap-3">
+                    <i class="fas fa-code-branch text-green-500"></i> TECH_STACK
+                </h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Skill Item -->
+                    <div class="bg-gray-900 p-4 border border-gray-800 hover:border-green-500 transition-all group">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="font-bold text-gray-300 group-hover:text-green-400">SOC / SIEM</span>
+                            <span class="text-xs text-green-500">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-green-500 h-full w-[95%] shadow-[0_0_10px_#00ff41]"></div>
+                        </div>
+                    </div>
+                    <!-- Skill Item -->
+                    <div class="bg-gray-900 p-4 border border-gray-800 hover:border-cyan-500 transition-all group">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="font-bold text-gray-300 group-hover:text-cyan-400">Networking</span>
+                            <span class="text-xs text-cyan-500">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-cyan-500 h-full w-[90%] shadow-[0_0_10px_#00f3ff]"></div>
+                        </div>
+                    </div>
+                    <!-- Skill Item -->
+                    <div class="bg-gray-900 p-4 border border-gray-800 hover:border-purple-500 transition-all group">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="font-bold text-gray-300 group-hover:text-purple-400">Malware Analysis</span>
+                            <span class="text-xs text-purple-500">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-purple-500 h-full w-[85%] shadow-[0_0_10px_#a855f7]"></div>
+                        </div>
+                    </div>
+                    <!-- Skill Item -->
+                    <div class="bg-gray-900 p-4 border border-gray-800 hover:border-blue-500 transition-all group">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="font-bold text-gray-300 group-hover:text-blue-400">Azure Cloud</span>
+                            <span class="text-xs text-blue-500">88%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-blue-500 h-full w-[88%] shadow-[0_0_10px_#3b82f6]"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold text-white mb-4">Tools & Platforms</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-700 text-sm text-cyan-300">Elastic SIEM</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-700 text-sm text-cyan-300">Wazuh</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-700 text-sm text-cyan-300">SOC Radar</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-700 text-sm text-cyan-300">Forti EMS</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-700 text-sm text-cyan-300">Cisco</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-700 text-sm text-cyan-300">Aruba Central</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-700 text-sm text-cyan-300">Trellix</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div>
+                <h2 class="text-3xl font-cyber text-white mb-8 flex items-center gap-3">
+                    <i class="fas fa-certificate text-yellow-500"></i> CERTIFICATES
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4 p-4 border border-gray-800 bg-gray-900 hover:bg-gray-800 transition-colors">
+                        <div class="text-yellow-500 text-2xl"><i class="fab fa-microsoft"></i></div>
+                        <div>
+                            <h3 class="text-white font-bold">MS Certified: Security, Compliance, Identity</h3>
+                            <p class="text-gray-400 text-xs">Issued: 14/06/2024</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 border border-gray-800 bg-gray-900 hover:bg-gray-800 transition-colors">
+                        <div class="text-blue-500 text-2xl"><i class="fab fa-microsoft"></i></div>
+                        <div>
+                            <h3 class="text-white font-bold">MS Certified: Azure Fundamentals</h3>
+                            <p class="text-gray-400 text-xs">Issued: 22/05/2024</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 border border-gray-800 bg-gray-900 hover:bg-gray-800 transition-colors">
+                        <div class="text-red-500 text-2xl"><i class="fas fa-spider"></i></div>
+                        <div>
+                            <h3 class="text-white font-bold">Certified Threat Hunting & Incident Response</h3>
+                            <p class="text-gray-400 text-xs">Issued: 11/10/2025</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 border border-gray-800 bg-gray-900 hover:bg-gray-800 transition-colors">
+                        <div class="text-green-500 text-2xl"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div>
+                            <h3 class="text-white font-bold">Instructor & Advisor Cloud Computing</h3>
+                            <p class="text-gray-400 text-xs">Bangkit Academy (Google) | 2023-2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="border-t border-green-900 bg-black py-12 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiMwMDMyMDAiLz48L3N2Zz4=')] opacity-20"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl font-cyber text-white mb-8 glitch" data-text="INITIATE_COMMUNICATION">INITIATE_COMMUNICATION</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <a href="mailto:rizkiangga866@gmail.com" class="neon-border p-6 bg-slate-900 hover:bg-green-900/20 transition group">
+                    <i class="fas fa-envelope text-3xl text-green-500 mb-4 group-hover:animate-bounce"></i>
+                    <p class="text-gray-300 text-sm">rizkiangga866@gmail.com</p>
+                </a>
+                <a href="#" class="neon-border p-6 bg-slate-900 hover:bg-green-900/20 transition group">
+                    <i class="fab fa-linkedin text-3xl text-blue-500 mb-4 group-hover:animate-pulse"></i>
+                    <p class="text-gray-300 text-sm">LinkedIn Profile</p>
+                </a>
+                <a href="tel:081367576713" class="neon-border p-6 bg-slate-900 hover:bg-green-900/20 transition group">
+                    <i class="fas fa-phone text-3xl text-cyan-500 mb-4 group-hover:rotate-12"></i>
+                    <p class="text-gray-300 text-sm">081367576713</p>
+                </a>
+            </div>
+
+            <p class="text-gray-600 font-mono text-sm">
+                &copy; 2025 Rizki Angga Pratama. All Systems Operational.<br>
+                <span class="text-green-900">Encrypted Connection Established.</span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const alphabet = katakana + latin + nums;
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const rainDrops = [];
+
+        for( let x = 0; x < columns; x++ ) {
+            rainDrops[x] = 1;
+        }
+
+        const draw = () => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if(rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975){
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+
+        setInterval(draw, 30);
+
+        // Resize Canvas
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Typewriter Effect
+        const textToType = "IT Security Analyst L2 | Blue Team Specialist";
+        const typeWriterElement = document.getElementById('typewriter');
+        let i = 0;
+
+        function typeWriter() {
+            if (i < textToType.length) {
+                typeWriterElement.innerHTML += textToType.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        
+        // Start typing after a short delay
+        setTimeout(typeWriter, 1000);
+
+    </script>
+</body>
+</html>
