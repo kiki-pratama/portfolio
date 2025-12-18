@@ -64,6 +64,11 @@
         .neon-border-blue {
             border: 1px solid #00f3ff;
             box-shadow: 0 0 5px #00f3ff, inset 0 0 5px #00f3ff;
+            transition: all 0.3s ease;
+        }
+        .neon-border-blue:hover {
+            box-shadow: 0 0 15px #00f3ff, inset 0 0 10px #00f3ff;
+            background: rgba(0, 243, 255, 0.05);
         }
 
         /* Terminal Typing Cursor */
@@ -125,9 +130,10 @@
                 <a href="#contact" class="neon-border bg-black/50 text-green-400 px-8 py-3 font-bold hover:scale-105 transform transition">
                     <i class="fas fa-terminal mr-2"></i> HIRE_ME
                 </a>
-                <button class="neon-border-blue bg-black/50 text-cyan-400 px-8 py-3 font-bold hover:scale-105 transform transition" onclick="alert('CV Download Initiated...')">
+                <!-- UPDATED BUTTON CODE BELOW -->
+                <a href="cv_rizki.pdf" download="CV_Rizki_Angga_Pratama.pdf" class="neon-border-blue bg-black/50 text-cyan-400 px-8 py-3 font-bold hover:scale-105 transform transition inline-flex items-center">
                     <i class="fas fa-download mr-2"></i> DOWNLOAD_CV
-                </button>
+                </a>
             </div>
         </div>
     </section>
