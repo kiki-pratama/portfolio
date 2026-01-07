@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkoolMath AI 2.0 | Project Showcase</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.js';
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neon: {
+                            green: '#39ff14',
+                            blue: '#00f3ff',
+                            purple: '#bc13fe',
+                            pink: '#ff00cc',
+                            yellow: '#f4d03f',
+                            red: '#ff003c',
+                        }
+                    },
+                    fontFamily: {
+                        cyber: ['"Orbitron"', 'sans-serif'],
+                        mono: ['"Roboto Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #020408; color: #e0e0e0; font-family: 'Roboto Mono', monospace; overflow-x: hidden; }
+        
+        /* Matrix Background */
+        canvas#matrix { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050a0f; }
+        ::-webkit-scrollbar-thumb { background: #bc13fe; border-radius: 4px; }
+
+        /* Glitch Effect */
+        .glitch { position: relative; }
+        .glitch::before, .glitch::after {
+            content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #020408;
+        }
+        .glitch::before { left: 2px; text-shadow: -1px 0 #ff00cc; clip: rect(24px, 550px, 90px, 0); animation: glitch-anim-2 3s infinite linear alternate-reverse; }
+        .glitch::after { left: -2px; text-shadow: -1px 0 #00f3ff; clip: rect(85px, 550px, 140px, 0); animation: glitch-anim 2.5s infinite linear alternate-reverse; }
+        @keyframes glitch-anim { 0% { clip: rect(30px, 9999px, 10px, 0); } 100% { clip: rect(10px, 9999px, 80px, 0); } }
+        @keyframes glitch-anim-2 { 0% { clip: rect(10px, 9999px, 90px, 0); } 100% { clip: rect(90px, 9999px, 10px, 0); } }
+
+        /* Glass Card */
+        .cyber-card {
+            background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;
+        }
+        .cyber-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px rgba(188, 19, 254, 0.2); }
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+
+    <nav class="fixed w-full z-50 top-0 border-b border-white/10 bg-black/80 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-brain text-2xl text-neon-purple animate-pulse"></i>
+                <span class="font-cyber font-bold text-xl tracking-widest text-white">SKOOLMATH<span class="text-neon-blue">_AI</span></span>
+            </div>
+            <a href="index.html" class="text-xs font-bold text-neon-green border border-neon-green px-4 py-2 rounded hover:bg-neon-green hover:text-black transition-all">
+                &lt; BACK TO PORTFOLIO
+            </a>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="inline-block border border-neon-purple/50 bg-neon-purple/10 px-3 py-1 mb-6 rounded text-xs text-neon-purple font-bold tracking-widest">
+                ● PROJECT STATUS: PRODUCTION V2.0
+            </div>
+            
+            <h1 class="font-cyber text-4xl md:text-6xl font-bold mb-4 glitch" data-text="SKOOLMATH AI 2.0">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue via-white to-neon-purple">
+                    SKOOLMATH AI 2.0
+                </span>
+            </h1>
+            
+            <h2 class="text-xl md:text-2xl text-gray-400 font-cyber mb-8 max-w-3xl mx-auto">
+                Multimodal EdTech Assistant
+            </h2>
+            
+            <p class="text-neon-blue font-mono text-sm md:text-base mb-12 bg-black/50 inline-block px-4 py-2 rounded border border-neon-blue/30">
+                AI-powered math tutor with Triple-Fallback Architecture, Vision Capabilities, and RAG Memory.
+            </p>
+
+            <div class="flex justify-center gap-4">
+                <a href="#demo" class="px-8 py-3 bg-neon-purple text-black font-bold font-cyber hover:scale-105 transition-transform rounded shadow-[0_0_20px_rgba(188,19,254,0.5)]">
+                    <i class="fas fa-play mr-2"></i> LIVE DEMO
+                </a>
+                <a href="#architecture" class="px-8 py-3 border border-white text-white font-bold font-cyber hover:bg-white hover:text-black transition-all rounded">
+                    <i class="fas fa-network-wired mr-2"></i> ARCHITECTURE
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="py-10 px-6">
+        <div class="max-w-6xl mx-auto" data-aos="zoom-in-up">
+            <div class="cyber-card p-1 md:p-2 rounded-2xl border-2 border-neon-purple/30 shadow-[0_0_40px_rgba(188,19,254,0.15)] bg-black/90 relative overflow-hidden">
+                <div class="bg-gray-900/90 p-4 border-b border-gray-700 flex justify-between items-center">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="font-mono text-xs text-neon-purple tracking-widest opacity-80">
+                        USER@SKOOLMATH-AI:~/RUN_APP.PY
+                    </div>
+                </div>
+
+                <div class="relative w-full h-[700px] bg-black">
+                    <iframe 
+                        src="https://skoolmath-ai.streamlit.app/?embed=true" 
+                        class="w-full h-full border-0"
+                        title="SkoolMath AI Live Demo"
+                        allow="camera; microphone; clipboard-read; clipboard-write">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <div data-aos="fade-right">
+                <h3 class="text-2xl font-cyber font-bold mb-8 text-white">
+                    <i class="fas fa-file-code mr-2 text-neon-green"></i> CASE <span class="text-neon-green">STUDY</span>
+                </h3>
+                
+                <div class="cyber-card p-8 rounded-xl border-l-4 border-l-neon-green space-y-6">
+                    <div>
+                        <h4 class="text-neon-green font-bold mb-2 text-sm">SITUATION & TASK</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Mengembangkan aplikasi asisten matematika cerdas yang mampu menyelesaikan soal dari input teks, suara, dan gambar (Vision).
+                            <br><br>
+                            <span class="text-white font-bold">Tantangan Utama:</span> Mengatasi limitasi kuota API gratisan dan risiko halusinasi AI yang sering terjadi pada model matematika.
+                        </p>
+                    </div>
+                    
+                    <div class="w-full h-px bg-gray-700"></div>
+
+                    <div>
+                        <h4 class="text-neon-blue font-bold mb-2 text-sm">ACTION (SOLUTION)</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Mengimplementasikan <span class="text-white">Triple-Fallback System</span> (beralih otomatis antara Gemini 2.0 Lite, Flash, dan 1.5) untuk menjamin 99.9% uptime. 
+                            Membangun sistem <span class="text-white">RAG (Retrieval-Augmented Generation)</span> menggunakan SQLite untuk memori jangka panjang demi konsistensi jawaban.
+                        </p>
+                    </div>
+
+                    <div class="w-full h-px bg-gray-700"></div>
+
+                    <div>
+                        <h4 class="text-neon-pink font-bold mb-2 text-sm">RESULT (FEATURES)</h4>
+                        <ul class="list-disc list-inside text-gray-400 text-sm space-y-1">
+                            <li>Auto-generate PDF solution steps.</li>
+                            <li>Audio explanation (Text-to-Speech).</li>
+                            <li>Dynamic Graph Plotting using Matplotlib.</li>
+                            <li>High-availability & Low-latency responses.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div data-aos="fade-left">
+                <h3 class="text-2xl font-cyber font-bold mb-8 text-white">
+                    <i class="fas fa-layer-group mr-2 text-neon-blue"></i> TECH <span class="text-neon-blue">STACK</span>
+                </h3>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="cyber-card p-4 rounded hover:border-neon-yellow transition-colors group">
+                        <i class="fab fa-python text-3xl text-neon-yellow mb-2 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-bold text-white">Python</h4>
+                        <p class="text-xs text-gray-500">Core Logic & Backend</p>
+                    </div>
+                    
+                    <div class="cyber-card p-4 rounded hover:border-neon-red transition-colors group">
+                        <i class="fas fa-crown text-3xl text-neon-red mb-2 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-bold text-white">Streamlit</h4>
+                        <p class="text-xs text-gray-500">Frontend Framework</p>
+                    </div>
+
+                    <div class="cyber-card p-4 rounded hover:border-neon-blue transition-colors group">
+                        <i class="fas fa-brain text-3xl text-neon-blue mb-2 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-bold text-white">Gemini API</h4>
+                        <p class="text-xs text-gray-500">LLM Engine (Multimodal)</p>
+                    </div>
+
+                    <div class="cyber-card p-4 rounded hover:border-neon-purple transition-colors group">
+                        <i class="fas fa-database text-3xl text-neon-purple mb-2 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-bold text-white">SQLite</h4>
+                        <p class="text-xs text-gray-500">Vector/Memory Storage</p>
+                    </div>
+
+                    <div class="cyber-card p-4 rounded hover:border-neon-green transition-colors group">
+                        <i class="fas fa-chart-line text-3xl text-neon-green mb-2 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-bold text-white">Matplotlib</h4>
+                        <p class="text-xs text-gray-500">Data Visualization</p>
+                    </div>
+
+                    <div class="cyber-card p-4 rounded hover:border-white transition-colors group">
+                        <i class="fas fa-cloud text-3xl text-white mb-2 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-bold text-white">Cloud</h4>
+                        <p class="text-xs text-gray-500">Streamlit Cloud / Deployment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-2xl font-cyber font-bold mb-8 text-center text-white" data-aos="fade-down">
+                SYSTEM <span class="text-neon-pink">ARCHITECTURE</span>
+            </h3>
+
+            <div class="cyber-card p-6 rounded-2xl border-t-4 border-t-neon-pink bg-black/80 overflow-x-auto" data-aos="zoom-in">
+                <div class="mermaid flex justify-center">
+                    graph TD
+                    %% --- DEFINISI STYLE ---
+                    classDef user fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+                    classDef logic fill:#dcedc8,stroke:#558b2f,stroke-width:2px,color:#000
+                    classDef ai fill:#ffccbc,stroke:#d84315,stroke-width:2px,color:#000
+                    classDef db fill:#e1bee7,stroke:#8e24aa,stroke-width:2px,color:#000
+                    
+                    User((👤 User)):::user -->|Input Teks/Foto| UI[Streamlit UI]
+                    UI --> Controller{⚙️ Logic Controller}:::logic
+                    
+                    Controller -->|Check Cache| DB[(SQLite RAG)]:::db
+                    DB -- Hit --> Prompt
+                    DB -- Miss --> Prompt
+                    
+                    subgraph AI_Core [Triple Fallback System]
+                        Prompt[📝 Prompt Prep] --> M1{Gemini 2.0 Lite}:::ai
+                        M1 -- Error/Limit --> M2{Gemini 2.0 Flash}:::ai
+                        M2 -- Error/Limit --> M3{Gemini 1.5 Flash}:::ai
+                    end
+                    
+                    M1 --> Output
+                    M2 --> Output
+                    M3 --> Output
+                    
+                    Output[✨ Final Response: PDF + Audio + Graph]:::logic --> UI
+                </div>
+                <p class="text-center text-xs text-gray-500 mt-4 font-mono">
+                    *Diagram rendered automatically using mermaid.js
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-gray-800 bg-black py-8 text-center">
+        <p class="text-gray-500 font-mono text-sm">
+            &copy; 2026 Rizki Angga Pratama. <span class="text-neon-green">All Right Reserved.</span>
+        </p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Matrix Rain Effect (Simple Version)
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const alphabet = '01';
+        const fontSize = 14;
+        const columns = canvas.width/fontSize;
+        const drops = [];
+        for(let x=0; x<columns; x++) drops[x] = 1;
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+            for(let i=0; i<drops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+                if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 50);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+    </script>
+</body>
+</html>
